@@ -7,12 +7,25 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        required : true
+        required : true,
+        unique: true
     },
     password:{
         type: String,
         required : true
-    }
-})
+    },
+    lasLogin: {
+        type: Date,
+        default: Date.now
+    },
+    isVerfied: {
+        type:Boolean,
+        default: false
+    },
+    resetPasswordToken: String,
+    resetPasswordExpiresAt: Date,
+    verificationToken: String,
+    verificationTokenExpiresAt: Date,
+},{timestamps: true});
 
-export default mongoose.model("Users", userSchema)
+export const User = mongoose.model("User", userSchema)
