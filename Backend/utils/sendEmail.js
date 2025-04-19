@@ -31,3 +31,21 @@ export const sendVerificationEmail = async({ email, otp }, res) => {
         throw new Error(`Error sending verification email: ${error}`);
     }
 }
+
+export const sendPasswordResetEmail = async (email, resetURL) => {
+    try {
+        const mailOptions = {
+            from: process.env.SMTP_USER,
+            to: email,
+            subject: "Password Reset",
+            html: `<p>Click <a href="${resetURL}">here</a> to reset your password. Link will expire in 30 minutes.</p>`
+
+        };
+
+        const info = await transporter.sendMail(mailOptions);
+        console.log("Password reset email sent successfully", info.messageId);
+    } catch (error) {
+        console.error(`Error sending password reset email`, error);
+        throw new Error(`Error sending password reset email: ${error}`);
+    }
+};
