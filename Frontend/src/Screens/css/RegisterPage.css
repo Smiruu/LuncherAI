@@ -1,0 +1,61 @@
+/* RegisterPage.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .Sign-up.Card {
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 400px;
+    margin: 80px auto 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Sign-up.Card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .SubmitButton {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .SubmitButton:hover {
+    background-color: #45a049;
+  }
+  
+  .LoginSection {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .LoginText {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .LoginText a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .LoginText a:hover {
+    text-decoration: underline;
+  }
+  
