@@ -15,44 +15,50 @@ function RegisterPage() {
   };
 
   return (
-    <div>
-      <div className="Sign-up Card">
-        <h2>Create Account</h2>
-        <form onSubmit={handleSignUp}>
-          <Input
-            icon={User}
-            type="text"
-            placeholder="Username"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Input
-            icon={Mail}
-            type="text"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Input
-            icon={Lock}
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <PasswordStrength password={password} />
-          <button className="SubmitButton" type="submit">
-            Sign Up
-          </button>
-        </form>
+    <>
+      <div className="Container">
+        <div className="Logo Card">
+          <h1>LuncherAI</h1>
+        </div>
+        <div className="Sign-up Card">
+          <h2>Create Account</h2>
+          <form onSubmit={handleSignUp}>
+            <Input
+              icon={User}
+              type="text"
+              placeholder="Username"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Input
+              icon={Mail}
+              type="text"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
+              icon={Lock}
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <PasswordStrength password={password} />
+            <button className="SubmitButton" type="submit">
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
+    
       <div className="LoginSection">
         <p className="LoginText">
-          Already have an account?{""}
+          Already have an account?{" "}
           <Link to={"/login"}>Log In</Link>
         </p>
       </div>
-    </div>
+    </>
   );
 }
 
