@@ -5,6 +5,7 @@ import cors from "cors";
 import bodyParser from "body-parser"
 import authRoute from "./routes/auth.route.js"
 import { connectDB } from "./utils/connectDB.js"
+import cookieParser from "cookie-parser";
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,7 @@ connectDB();
 app.use(cors({origin: "http://localhost:5173", credentials:true }))
 
 app.use(express.json());//Middleware that allows us to parse incoming requests (basically serializer)
+app.use(cookieParser());
 
 //This is where the app gets its address
 app.listen(PORT, () => {

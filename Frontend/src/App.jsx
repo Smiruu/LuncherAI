@@ -3,6 +3,7 @@ import LoginPage from "./Screens/LoginPage";
 import RegisterPage from "./Screens/RegisterPage";
 import VerifyEmail from "./Screens/VerifyEmail";
 import Dashboard from "./Screens/Dashboard";
+import LoadingSpinner from "./Components/LoadingSpinner"
 import {
   BrowserRouter as Router,
   Route,
@@ -19,7 +20,7 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
 
-  if (!isVerified) {
+  if (!user.isVerified) {
     return <Navigate to="/verify-email" replace />;
   }
 
@@ -42,7 +43,8 @@ function App() {
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
-
+  
+  if (isCheckingAuth) return <LoadingSpinner />;
   console.log("isAuthenticated", isAuthenticated);
   console.log("user", user);
 
