@@ -81,7 +81,7 @@ export const verifyEmail = async (req,res) => {
         console.log("error in verifyEmail ", error);
 		res.status(500).json({ success: false, message: "Server error" });
     }
-}
+};
 export const login = async (req,res) => {
     const {email, password} = req.body;
     try {
@@ -113,7 +113,7 @@ export const login = async (req,res) => {
         console.log("Error in login", error);
         return res.status(400).json({ success: false, message: error.message});
     }
-}
+};
 export const logout = async (req,res) => {
     res.clearCookie("token")
     res.status(200).json({ success:true, message:"Logged out successfully"});
@@ -144,7 +144,7 @@ export const forgotPassword = async (req,res) => {
         console.log("Error in forgotPassword", error);
         return res.status(400).json({ success: false, message: error.message});
     }
-}
+};
 
 export const resetPassword = async (req, res) => {
     try {
@@ -175,5 +175,7 @@ export const resetPassword = async (req, res) => {
         return res.status(400).json({ success: false, message: error.message });
     }
 };
+
+
 
 

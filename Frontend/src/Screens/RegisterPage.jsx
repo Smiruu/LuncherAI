@@ -1,17 +1,27 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../Components/Input";
-import { User, Mail, Lock } from "lucide-react";
+import { User, Mail, Lock, Loader } from "lucide-react";
 import PasswordStrength from "../Components/PasswordStrength";
 import './css/RegisterPage.css';
+import { useAuthStore } from "../Store/authStore";
 
 function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { signup, error, isLoading } = useAuthStore();
+  const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async(e) => {
     e.preventDefault();
+
+    try {
+      await signup(email, password, name);
+      navigate("/verify-email");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -44,9 +54,10 @@ function RegisterPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {error && <p>{error}</p>}
             <PasswordStrength password={password} />
-            <button className="SubmitButton" type="submit">
-              Sign Up
+            <button className="SubmitButton" type="submit" disabled={isLoading}>
+              {isLoading ? <Loader/> : "Sign Up"}
             </button>
           </form>
         </div>

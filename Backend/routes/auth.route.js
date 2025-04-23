@@ -13,4 +13,5 @@ route.post("/verify-email", verifyEmail);
 route.post("/forgot-password", forgotPassword);
 route.post("/reset-password/:token", resetPassword);
 
+
 export default route;

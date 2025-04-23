@@ -3,15 +3,16 @@ import { Mail, Lock, Loader } from "lucide-react";
 import { Link } from "react-router-dom";
 import Input from "../Components/Input";
 import "./css/LoginPage.css";
+import { useAuthStore } from "../Store/authStore";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const isLoading = false;
+  const { login, isLoading, error } = useAuthStore();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Add logic later
+    await login(email, password);
   };
 
   return (
@@ -38,8 +39,13 @@ const LoginPage = () => {
               Forgot your password? Bobo! click mo toh hays
             </Link>
           </div>
+          {error && <p>{error}</p>}
           <button type="submit" disabled={isLoading}>
-            {isLoading ? <Loader size={20} className="animate-spin" /> : "Login"}
+            {isLoading ? (
+              <Loader size={20} className="animate-spin" />
+            ) : (
+              "Login"
+            )}
           </button>
           <div>
             <p>
