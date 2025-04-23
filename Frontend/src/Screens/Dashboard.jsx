@@ -14,7 +14,7 @@ const Dashboard = () => {
       <header className="dashboard-header">
         <h1>Welcome to LuncherAI 🍱</h1>
         <p>Your smart lunchbox assistant</p>
-        <button className="logout-button" onClick={handleLogout}>Logout</button> {/* Logout button */}
+        <button className="logout-button" onClick={handleLogout}>Logout</button> {/* Logout button pwede palitan tempo lng */}
       </header>
       <main className="dashboard-main">
         <section className="dashboard-card">
