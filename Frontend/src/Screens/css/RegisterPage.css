@@ -1,64 +1,45 @@
-/* Base styles */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #ffffff;
+}
+
+.Container{
+  margin-top: 5%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden; /* Prevent body from scrolling */
+  overflow:hidden;
 }
 
-/* Container for logo + sign-up */
-.Container {
-  display: flex;
-  flex-direction: row; /* Default: logo on the left */
-  max-width: 800px;
-  width: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
+.Logo.Card{
+background-color: #D9D9D9;
+justify-items: center;
+align-content: center;
+min-width: 300px;
+border-radius: 20px 0px 0px 20px;
+border: 3px solid black;
 }
-
-/* Logo section */
-.Logo.Card {
-  flex: 1;
-  min-width: 300px; /* Ensure logo section doesn’t shrink too much */
-  padding: 50px;
-  background-color: #D9D9D9;
-  border-right: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
 .Logo.Card h1 {
   margin: 0;
   font-size: 50px;
   text-align: center;
 }
 
-/* Sign-up form section */
-.Sign-up.Card {
-  flex: 2;
-  min-width: 320px; /* Ensure form section has a minimum width */
-  padding: 30px;
+.Sign-up.Card{
   background-color: #D9D9D9;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  padding: 20px;
+  min-width: 300px;
+  border-radius: 0px 20px 20px 0px;
+  border: 3px solid black;
+  border-left: 0px;
 }
-
 .Sign-up.Card h2 {
   text-align: center;
   font-size: 24px;
   margin-bottom: 20px;
 }
-
-/* Input Submit Button */
 .SubmitButton {
   width: 100%;
   background-color: black;
@@ -69,26 +50,23 @@ html, body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
+  
   transition: background-color 0.3s;
 }
-
 .SubmitButton:hover {
-  background-color: #45a049;
+  background-color: grey;
 }
-
-/* Login redirect section */
 .LoginSection {
   text-align: center;
   margin-top: 20px;
 }
-
 .LoginText {
   color: #333;
   font-size: 14px;
 }
 
 .LoginText a {
-  color: #4caf50;
+  color: black;
   text-decoration: none;
   font-weight: bold;
 }
@@ -97,37 +75,25 @@ html, body {
   text-decoration: underline;
 }
 
-/* --------------------- */
-/* Responsive adjustments */
-/* --------------------- */
 @media (max-width: 768px) {
   .Container {
-    flex-direction: column; /* Stack vertically */
+    flex-direction: column-reverse; /* Stack vertically */
     width: 100%;
     border-radius: 10px;
+    overflow: hidden;
   }
-
-  .Logo.Card {
-    order: -1; /* Move logo to top */
-    border-right: none;
-    border-bottom: 1px solid black;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    padding: 30px;
-    width: 100%;
-  }
-
-  .Logo.Card h1 {
-    font-size: 36px;
-  }
-
-  .Sign-up.Card {
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+  .Logo.Card{
+    border: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 10px 10px 10px 10px;
     padding: 20px;
-    width: 100%;
+    border: 3px solid black;
+  }
+
+  .Sign-up.Card{
+    border: 3px solid black;
+    border-radius: 20px 20px 20px 20px;
+    margin: 10px;
   }
 }

@@ -25,7 +25,7 @@ function RegisterPage() {
   };
 
   return (
-    <>
+    <div>
       <div className="Container">
         <div className="Logo Card">
           <h1>LuncherAI</h1>
@@ -69,7 +69,7 @@ function RegisterPage() {
           <Link to={"/login"}>Log In</Link>
         </p>
       </div>
-    </>
+    </div>
   );
 }
 
